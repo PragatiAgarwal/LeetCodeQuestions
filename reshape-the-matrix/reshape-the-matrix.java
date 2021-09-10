@@ -1,22 +1,22 @@
 class Solution {
     public int[][] matrixReshape(int[][] mat, int r, int c) {
+        //Optimized
         int p = mat.length;
         int q = mat[0].length;
         int[][] resultMat = new int[r][c];
         
         if(p*q == r*c){
-            ArrayList<Integer> l = new ArrayList<Integer>();
+            int row = 0, col = 0;
             for(int i = 0; i<p; i++){
                 for(int j = 0; j<q; j++){
-                    l.add(mat[i][j]);
+                    resultMat[row][col++] = mat[i][j]; 
+                    if(col == c){
+                        row++;
+                        col = 0;
+                    }
                 }
              } 
-            int k = 0;
-            for(int i = 0; i<r; i++){
-                for(int j = 0; j<c; j++){
-                    resultMat[i][j] = l.get(k++);
-                }
-            }
+           
             return resultMat;
         }
         
