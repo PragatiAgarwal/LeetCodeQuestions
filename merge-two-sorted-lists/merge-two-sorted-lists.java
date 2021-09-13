@@ -10,72 +10,46 @@
  */
 class Solution {
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
-        ListNode l3= null, r = null;
-        ListNode p = l1, q = l2;
-        while(p != null && q !=null){
-            if(p.val < q.val){
-                ListNode node = new ListNode(p.val);
-                
-                if(l3 == null){
-                    l3 = node;
-                    r = node;
-                }
-                else{
-                    r.next = node;
-                    r = node;
-                }
-               // ListNode node1 = new ListNode(q.val);
-               // r.next = node1;
-               // r = r.next;
-                p = p.next;
-                //q = q.next;
-            }
-            else{
-                 ListNode node = new ListNode(q.val);
-                
-                if(l3 == null){
-                    l3 = node;
-                    r = node;
-                }
-                else{
-                    r.next = node;
-                    r = node;
-                }
-               // ListNode node1 = new ListNode(p.val);
-               // r.next = node1;
-               // r = r.next;
-               // p = p.next;
+        if(l1 == null) return l2;
+        if(l2 == null) return l1;
+        
+        ListNode l3 = null, r = null;
+        ListNode p = l1, q=l2;
+        while(p != null && q != null){
+            ListNode node = new ListNode();
+            if(p.val > q.val){
+                node.val = q.val; 
                 q = q.next;
             }
+                 
+            else{
+                node.val = p.val;
+                p = p.next;
+            }
+               
+            if(r == null){
+                l3 = node;
+                r = node;
+            }
             
-            
+            else {
+                r.next = node;
+                r = node;
+            }
         }
         
-        while( p != null){
+        while(p != null){
             ListNode node = new ListNode(p.val);
-             if(l3 == null){
-                    l3 = node;
-                    r = node;
-                }
-           else{ r.next = node;
-                r = r.next;
-               }
-           
-            p=p.next;
+            r.next = node;
+            r = node;
+            p = p.next;
         }
         
-         while( q != null){
+        while(q != null){
             ListNode node = new ListNode(q.val);
-            if(l3 == null){
-                    l3 = node;
-                    r = node;
-                }
-           else{ r.next = node;
-                r = r.next;
-               }
-           
-           
-             q=q.next;
+            r.next = node;
+            r = node;
+            q = q.next;
         }
         
         return l3;
