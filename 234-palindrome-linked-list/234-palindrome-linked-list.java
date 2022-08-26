@@ -23,12 +23,7 @@ class Solution {
      
         ListNode head2 = head;
         int mid = 0;
-        // if(count % 2 == 1){
-        //     mid = count/2 + 1 ;
-        // }
-        // else{
-        //     mid = count/2  ;
-        // }
+    
         mid= count/2;
    
         while(mid != 0){
@@ -45,16 +40,9 @@ class Solution {
             q = r;
            
         }
-        
-       // if(count % 2 == 1){
-       //      mid = count/2 + 1 ;
-       //  }
-       //  else{
-       //      mid = count/2  ;
-       //  }
+     
         mid = count/2;
-        System.out.print(mid);
-       System.out.print(count);
+     
         while(mid != 0){
             if(head.val != head1.val){
                 
